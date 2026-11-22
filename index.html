@@ -89,6 +89,7 @@
                         }
                     }
                 }
+                
                 var material = new THREE.MeshPhongMaterial({map: brickTexture});
                 var mesh = new THREE.Mesh(dummy, material)
                 return mesh;
@@ -101,13 +102,16 @@
                 scene = new THREE.Scene();
 
                 // Add the light.
-                light= new THREE.PointLight(0xffffff, 1, 3);
+                light= new THREE.PointLight(0xffffff, 1, 4);
                 light.position.set(1, 1, 1.3);
                 scene.add(light);
                 
                 // Add the ball.
                 g = new THREE.SphereGeometry(ballRadius, 32, 16);
-                m = new THREE.MeshPhongMaterial({map:ironTexture});
+                m = new THREE.MeshPhongMaterial({
+                color: 0x99ff33,
+                emissive: 0x446600
+                });
                 ballMesh = new THREE.Mesh(g, m);
                 ballMesh.position.set(1, 1, ballRadius);
                 scene.add(ballMesh);
